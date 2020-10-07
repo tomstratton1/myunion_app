@@ -6,7 +6,9 @@ import { StyleSheet, Text, View, Image, ScrollView, TextInput, Button } from 're
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-function HomeScreen() {
+
+
+const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -40,11 +42,12 @@ function HomeScreen() {
           }}
           defaultValue=" Password" />
       </View> 
+      
       <View style={styles.buttonContainer}>
         <Button
-          onPress={() => {
-            alert('You tapped the button!');
-          } }
+          onPress={() => 
+            navigation.navigate('Home')
+          }
           title="Login"
           color="green" />
       </View>
@@ -74,17 +77,99 @@ function HomeScreen() {
   );
 }
 
+const HomeScreen = () => {
+  return (
+  <View style={styles.container}>
+    <Text>This is the home screen</Text>
+
+    <View style={{flex:1, flexDirection: 'row', justifyContent:'center'}}>
+
+      <View style={{flex:1, flexDirection: 'column', justifyContent:'center'}}>
+        <Image
+          source={require('./Group-of-People.jpg')       
+          }
+          style={{ width: 200, height: 100, resizeMode: 'stretch', }} />
+        <View style={styles.buttonContainer}>  
+          <Button
+            onPress={() => {
+              alert('You tapped the button!');
+            } }
+            title="Membership"
+            color="green" />
+        </View>
+      </View>
+
+      <View style={{flex:1, flexDirection: 'column', justifyContent:'center'}}>
+        <Image
+            source={require('./Group-of-People.jpg')       
+            }
+            style={{ width: 200, height: 100, resizeMode: 'stretch', }} />
+        
+        <View style={styles.buttonContainer}>  
+          <Button
+            onPress={() => {
+              alert('You tapped the button!');
+            } }
+            title="Membership"
+            color="green" />
+        </View>
+      </View>
+    </View>
+
+
+    <View style={{flex:1, flexDirection: 'row', justifyContent:'center'}}>
+
+      <View style={{flex:1, flexDirection: 'column', justifyContent:'center'}}>
+        <Image
+          source={require('./Group-of-People.jpg')       
+          }
+          style={{ width: 200, height: 100, resizeMode: 'stretch', }} />
+        <View style={styles.buttonContainer}>  
+          <Button
+            onPress={() => {
+              alert('You tapped the button!');
+            } }
+            title="Membership"
+            color="green" />
+        </View>
+      </View>
+
+      <View style={{flex:1, flexDirection: 'column', justifyContent:'center'}}>
+        <Image
+            source={require('./Group-of-People.jpg')       
+            }
+            style={{ width: 200, height: 100, resizeMode: 'stretch', }} />
+        
+        <View style={styles.buttonContainer}>  
+          <Button
+            onPress={() => {
+              alert('You tapped the button!');
+            } }
+            title="Membership"
+            color="green" />
+        </View>
+      </View>
+    
+    </View>
+
+
+</View>
+  
+
+  );
+};
+
 
 
 const Stack = createStackNavigator();
 
-function App()  {
+const App = () => {
   return (
     <NavigationContainer> 
         <Stack.Navigator>
+          <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator> 
-      
+        </Stack.Navigator>       
     </NavigationContainer>
   );
 }
